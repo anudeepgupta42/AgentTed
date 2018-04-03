@@ -470,8 +470,8 @@ def dialogflow_entity(vmname):
     print(response.json)
     
 def log_ticket(ticket_type, query, user_email, priority, status):
-	api_key = "1d3OInmn7R770ovj0ZZI"
-	domain = "infosysanudeep"
+	api_key = "GikySeHTuyqdjYfa8Bns"
+	domain = "anudeep"
 	password = "x"
 	ticket_id = ""
 
@@ -505,8 +505,8 @@ def log_ticket(ticket_type, query, user_email, priority, status):
 	  return ticket_id
 
 def show_ticket(ticket_id):
-    api_key = "1d3OInmn7R770ovj0ZZI"
-    domain = "infosysanudeep"
+    api_key = "GikySeHTuyqdjYfa8Bns"
+    domain = "anudeep"
     password = "x"
 
 	# Id of the ticket to be updated
@@ -515,8 +515,8 @@ def show_ticket(ticket_id):
     return res
 
 def update_ticket(ticket_id,priority):
-	api_key = "1d3OInmn7R770ovj0ZZI"
-	domain = "infosysanudeep"
+	api_key = "GikySeHTuyqdjYfa8Bns"
+	domain = "anudeep"
 	password = "x"
 
 	headers = { 'Content-Type' : 'application/json' }
@@ -530,8 +530,8 @@ def update_ticket(ticket_id,priority):
 
 """ to get the tickets(JSON) requested by current user(pass email id as in put parameter) which are open """
 def get_tickets(user_email):
-    api_key = "1d3OInmn7R770ovj0ZZI"
-    domain = "infosysanudeep"
+    api_key = "GikySeHTuyqdjYfa8Bns"
+    domain = "anudeep"
     password = "x"
     res = requests.get("https://"+ domain +".freshdesk.com/api/v2/tickets?email=" + user_email + "&filter=new_and_my_open", auth = (api_key, password))
     return res
@@ -576,24 +576,6 @@ def dashboard():
       data_frame_html=dataframe.to_html()
       
       return render_template("dashboard.html",path=path,rows=rows,tables=data_frame_html)
-  
-#def dashboard():
-#      con = create_connection()
-#      dataframe = pd.read_sql_query("select * from TICKETS", con)
-##      print(dataframe)
-##      print(dataframe['CATEGORY'])
-##      print(dataframe['CATEGORY'].value_counts())
-#
-#      fig = plt.figure()    
-#      dataframe.groupby('CATEGORY').size().plot(kind='bar')
-#      path='static/media/graph.png'
-#   
-#      fig.savefig(path)
-#
-#      print("path ",path)
-#      return render_template("dashboard.html",path=path)
-#          
-
 
 if __name__ == "__main__":
     main()
